@@ -27,4 +27,4 @@ jobs:
           tar -xzvf tmas-cli_Linux_x86_64.tar.gz
 
       - name: Scan Artifact
-        run: ./tmas-cli/tmas scan docker:nginx:latest - -VMS --saveSBOM > results.json
+        run: ./tmas scan docker:nginx:latest - -VMS --saveSBOM > results.json
