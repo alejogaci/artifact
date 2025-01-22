@@ -1,0 +1,14 @@
+vulnerabilities:
+  # This is the full set of supported rule fields:
+  - rule:
+      vulnerability: CVE-2023-6879
+      fixState: wont-fix
+      package:
+        name: libaom3
+        version: 3.6.0-1+deb12u1
+        type: deb
+        location: 
+          - "/usr/share/doc/libaom3/copyright"
+          - "/var/lib/dpkg/info/libaom3:amd64.md5sums"
+          - "/var/lib/dpkg/status"
+    reason: No reason
