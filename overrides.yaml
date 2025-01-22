@@ -7,7 +7,5 @@ vulnerabilities:
         name: libaom3
         version: 3.6.0-1+deb12u1
         type: deb
-        location: "/usr/share/doc/libaom3/copyright"
-        location: "/var/lib/dpkg/info/libaom3:amd64.md5sums"
-        location: "/var/lib/dpkg/status"
+        location: "/usr/share/doc/libaom3/copyright","/var/lib/dpkg/info/libaom3:amd64.md5sums","/var/lib/dpkg/status"
     reason: No reason
