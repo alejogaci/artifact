@@ -33,6 +33,7 @@ jobs:
         run:  |
           DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' busybox:latest)
           ./tmas scan registry:$DIGEST - -VMS --saveSBOM > results.json --override overrides.yaml
+          echo $DIIGEST
         
 #      - name: To CSV
 #        run: |
