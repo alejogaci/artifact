@@ -18,7 +18,7 @@ jobs:
 
       - name: Download Docker image
         run: |
-          docker pull busybox
+          docker pull alejogaci/banco:71
           docker images
           ls
 
@@ -31,7 +31,7 @@ jobs:
         env:
           TMAS_API_KEY: ${{ secrets.TMAS_API_KEY }}
         run:  |
-          DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' busybox:latest)
+          DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' alejogaci/banco:71)
           ./tmas scan registry:$DIGEST - -VMS --saveSBOM > results.json --override overrides.yaml
           echo $DIIGEST
         
