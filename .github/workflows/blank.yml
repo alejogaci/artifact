@@ -61,7 +61,7 @@ jobs:
           cat results.json | jq '.vulnerabilities.criticalCount < 1000 and .vulnerability.highCount < 1000 and .vulnerability.mediumCount < 3000' | grep -q false && { echo "No se cumple con los criterios de vulnerabilidades. Deteniendo el pipeline."; exit 1; } || echo "Se cumple con los criterios de vulnerabilidades. Continuando con el pipeline."
         
       - name: Upload Json as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: generated-json
           path: results.json   
