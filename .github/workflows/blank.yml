@@ -42,6 +42,19 @@ jobs:
 #          pip install -r requirements.txt
 #          python export_report_tmas.py nginx:latest --resultFile results.json
 
+
+      - name: To CSV
+        run: |
+          wget https://raw.githubusercontent.com/XeniaP/CS-ArtifactScanner-Report/refs/heads/main/export_report_tmas.py
+          git clone https://github.com/XeniaP/CS-ArtifactScanner-Report.git
+          pip install -r ./CS-ArtifactScanner-Report/requirements.txt
+          pwd
+          echo "$(imageName)"
+          python ./CS-ArtifactScanner-Report/export_report_tmas.py vulnerables/web-dvwa:latest --resultFile ./results.json
+          ls -la
+
+
+
       - name: Checking Vulnerabilities Scan Results
         run: |
           cat results.json | jq '.vulnerabilities | { totalVulnCount, criticalCount, highCount, mediumCount, lowCount, negligibleCount, unknownCount } | to_entries | .[] | "\(.key): \(.value)"'
