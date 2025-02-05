@@ -39,7 +39,7 @@ jobs:
         run: |
           wget https://raw.githubusercontent.com/alejogaci/CS-ArtifactScanner-Report/refs/heads/main/export_report_tmas.py https://raw.githubusercontent.com/XeniaP/CS-ArtifactScanner-Report/refs/heads/main/requirements.txt
           pip install -r requirements.txt && mkdir TM_Artifact_Scanner_Report_vulnerables
-          python export_report_tmas.py vulnerables/web-dvwa:latest --resultFile results.json
+          python export_report_tmas.py vulnerables/web-dvwa --resultFile results.json
           
       - name: Upload xlsx as Artifact
         uses: actions/upload-artifact@v4
