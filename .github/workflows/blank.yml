@@ -34,7 +34,8 @@ jobs:
           DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' vulnerables/web-dvwa:latest)
           ./tmas scan registry:$DIGEST - -VMS --saveSBOM > results.json --override overrides.yaml
           echo $DIIGEST
-        
+          
+#Convert JSON to XLSX. Change 'vulnerables/web-dvwa' to the image name.      
       - name: To CSV
         run: |
           wget https://raw.githubusercontent.com/alejogaci/CS-ArtifactScanner-Report/refs/heads/main/export_report_tmas.py https://raw.githubusercontent.com/XeniaP/CS-ArtifactScanner-Report/refs/heads/main/requirements.txt
@@ -46,18 +47,6 @@ jobs:
         with:
           name: generated-xlsx
           path: TM_Artifact_Scanner_Report_vulnerables/*.xlsx
-
-
-#      - name: To CSV
-#        run: |
-#          wget https://raw.githubusercontent.com/XeniaP/CS-ArtifactScanner-Report/refs/heads/main/export_report_tmas.py
-#          git clone https://github.com/XeniaP/CS-ArtifactScanner-Report.git
- #         pip install -r ./CS-ArtifactScanner-Report/requirements.txt
- #         pwd
- #         echo "$(imageName)"
- #         python ./CS-ArtifactScanner-Report/export_report_tmas.py vulnerables/web-dvwa:latest --resultFile ./results.json
- #         ls -la
-
 
 
       - name: Checking Vulnerabilities Scan Results
